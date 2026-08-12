@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vinayak Mishra | IIT Madras BS (Data Science) — Math & STEM Mentor</title>
+<meta name="description" content="Personalized 1-on-1 academic mentorship by an IIT Madras Data Science scholar. Logic-first, first-principles Math, STEM & K-10 tutoring — Patna & worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f172a;
+    --navy-soft:#16213e;
+    --slate:#475569;
+    --slate-light:#94a3b8;
+    --amber:#f59e0b;
+    --amber-soft:#fde68a;
+    --bg:#f8fafc;
+    --white:#ffffff;
+    --line:#e2e8f0;
+    --radius:14px;
+    --maxw:1180px;
+    --shadow:0 10px 30px -12px rgba(15,23,42,0.15);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--bg);
+    color:var(--navy);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:0.75rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--amber);
+  }
+  h1,h2,h3,h4{font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;margin:0;color:var(--navy);}
+  h2{font-size:clamp(1.7rem,3.2vw,2.4rem);}
+  h3{font-size:1.2rem;}
+  p{color:var(--slate);margin:0;}
+  section{padding:88px 0;}
+  .section-head{max-width:640px;margin-bottom:48px;}
+  .section-head h2{margin-top:10px;}
+  .section-head p{margin-top:14px;font-size:1.05rem;}
+  .mono{font-family:'Roboto Mono',monospace;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(15,23,42,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:var(--maxw);margin:0 auto;}
+  .brand{display:flex;flex-direction:column;line-height:1.15;}
+  .brand-name{color:#fff;font-weight:800;font-size:1.05rem;letter-spacing:-0.01em;}
+  .brand-sub{color:var(--amber);font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;}
+  .nav-links{display:flex;gap:30px;list-style:none;margin:0;padding:0;}
+  .nav-links a{color:#cbd5e1;font-size:0.9rem;font-weight:500;transition:color .2s;}
+  .nav-links a:hover{color:#fff;}
+  .nav-cta{
+    background:var(--amber);color:var(--navy);font-weight:700;font-size:0.85rem;
+    padding:10px 20px;border-radius:999px;white-space:nowrap;transition:transform .2s, box-shadow .2s;
+  }
+  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 20px -6px rgba(245,158,11,0.6);}
+  .nav-toggle{display:none;background:none;border:none;color:#fff;font-size:1.6rem;cursor:pointer;}
+
+  @media (max-width:860px){
+    .nav-links{
+      position:absolute;top:100%;left:0;right:0;
+      background:var(--navy);flex-direction:column;gap:0;
+      max-height:0;overflow:hidden;transition:max-height .3s ease;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+    .nav-links.open{max-height:400px;}
+    .nav-links a{display:block;padding:16px 24px;border-top:1px solid rgba(255,255,255,0.06);}
+    .nav-cta{display:none;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:radial-gradient(circle at 15% 20%, rgba(245,158,11,0.12), transparent 45%), var(--navy);
+    color:#fff;padding:80px 0 100px;position:relative;overflow:hidden;
+  }
+  .hero-grid{
+    position:absolute;inset:0;opacity:0.06;
+    background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);
+    background-size:56px 56px;pointer-events:none;
+  }
+  .hero-inner{position:relative;max-width:800px;}
+  .badges-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .pill{
+    font-size:0.78rem;font-weight:600;color:#e2e8f0;
+    background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);
+    padding:7px 14px;border-radius:999px;
+  }
+  .hero h1{
+    color:#fff;font-size:clamp(2.1rem,4.6vw,3.4rem);line-height:1.12;font-weight:800;
+  }
+  .hero h1 em{
+    font-style:normal;color:var(--amber);
+  }
+  .hero p.sub{
+    color:#cbd5e1;font-size:1.12rem;max-width:620px;margin-top:22px;
+  }
+  .hero p.sub strong{color:#fff;}
+  .hero-ctas{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--amber);color:var(--navy);font-weight:700;padding:15px 28px;border-radius:10px;
+    font-size:0.95rem;transition:transform .2s,box-shadow .2s;display:inline-block;
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px -8px rgba(245,158,11,0.55);}
+  .btn-ghost{
+    border:1px solid rgba(255,255,255,0.25);color:#fff;font-weight:600;padding:15px 26px;border-radius:10px;
+    font-size:0.95rem;transition:background .2s;
+  }
+  .btn-ghost:hover{background:rgba(255,255,255,0.08);}
+
+  .trust-row{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+    margin-top:56px;position:relative;
+  }
+  .trust-card{
+    background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+    border-radius:var(--radius);padding:22px;
+  }
+  .trust-card .ico{font-size:1.5rem;}
+  .trust-card h4{color:#fff;font-size:0.95rem;margin-top:10px;}
+  .trust-card p{color:#94a3b8;font-size:0.85rem;margin-top:6px;}
+  @media (max-width:760px){.trust-row{grid-template-columns:1fr;}}
+
+  /* ---------- Curriculum cards ---------- */
+  .dual-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+  @media (max-width:820px){.dual-grid{grid-template-columns:1fr;}}
+  .curric-card{
+    background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+    padding:34px;box-shadow:var(--shadow);position:relative;overflow:hidden;
+  }
+  .curric-card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:5px;background:var(--amber);
+  }
+  .curric-card.alt::before{background:var(--navy);}
+  .curric-tag{
+    font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--amber);
+  }
+  .curric-card.alt .curric-tag{color:var(--slate);}
+  .curric-card h3{font-size:1.35rem;margin-top:10px;}
+  .curric-card .aud{font-size:0.9rem;color:var(--slate);margin-top:6px;font-weight:500;}
+  .curric-list{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-direction:column;gap:10px;}
+  .curric-list li{
+    display:flex;gap:10px;font-size:0.94rem;color:var(--navy);align-items:flex-start;
+  }
+  .curric-list li::before{content:"✓";color:var(--amber);font-weight:800;flex-shrink:0;}
+  .curric-foot{
+    margin-top:22px;padding-top:16px;border-top:1px dashed var(--line);
+    font-size:0.82rem;color:var(--slate-light);
+  }
+
+  /* ---------- Methodology / case study ---------- */
+  .method-section{background:var(--navy);color:#fff;}
+  .method-section .section-head p{color:#94a3b8;}
+  .method-section .eyebrow{color:var(--amber);}
+  .method-section h2{color:#fff;}
+  .case-box{
+    background:var(--navy-soft);border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
+  }
+  @media (max-width:860px){.case-box{grid-template-columns:1fr;}}
+  .case-title{font-size:1.4rem;color:#fff;margin-bottom:12px;}
+  .case-box p{color:#cbd5e1;}
+  .case-box p + p{margin-top:14px;}
+  .number-line-wrap{background:#0b1220;border-radius:14px;padding:28px 20px;}
+  .nl-caption{font-size:0.75rem;color:var(--slate-light);text-align:center;margin-top:10px;font-family:'Roboto Mono',monospace;}
+  .nl-steps{display:flex;flex-direction:column;gap:8px;margin-top:18px;}
+  .nl-step{
+    display:flex;gap:10px;align-items:baseline;font-size:0.85rem;color:#e2e8f0;
+    font-family:'Roboto Mono',monospace;
+  }
+  .nl-step .k{color:var(--amber);font-weight:700;}
+
+  /* ---------- About + video ---------- */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;}
+  @media (max-width:860px){.about-grid{grid-template-columns:1fr;}}
+  .about-copy p{margin-top:16px;font-size:1rem;}
+  .about-credentials{list-style:none;padding:0;margin:24px 0 0;display:flex;flex-direction:column;gap:12px;}
+  .about-credentials li{
+    display:flex;gap:12px;font-size:0.92rem;color:var(--navy);font-weight:500;
+  }
+  .about-credentials li::before{content:"—";color:var(--amber);font-weight:800;}
+  .video-frame{
+    position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+    aspect-ratio:16/9;background:#000;
+  }
+  .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .video-caption{
+    margin-top:16px;background:var(--white);border:1px solid var(--line);border-radius:12px;
+    padding:18px 20px;font-size:0.92rem;color:var(--navy);font-style:italic;
+  }
+
+  /* ---------- Reviews ---------- */
+  .reviews-section{background:var(--white);}
+  .review-tabs{display:flex;gap:10px;margin-bottom:30px;}
+  .tab-btn{
+    padding:10px 22px;border-radius:999px;border:1px solid var(--line);background:var(--bg);
+    font-weight:600;font-size:0.88rem;cursor:pointer;color:var(--slate);transition:all .2s;
+  }
+  .tab-btn.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+  .review-panel{display:none;}
+  .review-panel.active{display:block;}
+  .review-grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:16px;
+  }
+  @media (max-width:960px){.review-grid{grid-template-columns:repeat(3,1fr);}}
+  @media (max-width:600px){.review-grid{grid-template-columns:repeat(2,1fr);}}
+  .review-card{
+    border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg);
+  }
+  .review-img-slot{
+    aspect-ratio:9/16;background:#e2e8f0;display:flex;align-items:center;justify-content:center;
+    color:var(--slate-light);font-size:0.7rem;text-align:center;padding:10px;
+  }
+  .review-card figcaption{
+    padding:10px 12px;font-size:0.78rem;color:var(--slate);border-top:1px solid var(--line);
+  }
+
+  /* ---------- Contact ---------- */
+  .contact-section{background:var(--bg);}
+  .contact-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:26px;align-items:start;}
+  @media (max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+  .form-box{
+    background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+    padding:10px;box-shadow:var(--shadow);
+  }
+  .form-box iframe{width:100%;height:520px;border:0;border-radius:8px;}
+  .contact-cards{display:flex;flex-direction:column;gap:18px;}
+  .contact-card{
+    background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow);
+  }
+  .contact-card .ico{
+    width:44px;height:44px;border-radius:10px;background:var(--navy);color:var(--amber);
+    display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;
+  }
+  .contact-card h4{font-size:1rem;}
+  .contact-card p{font-size:0.88rem;margin-top:4px;}
+  .contact-card a.link-btn{
+    display:inline-block;margin-top:10px;font-size:0.85rem;font-weight:700;color:var(--navy);
+    border-bottom:2px solid var(--amber);padding-bottom:1px;
+  }
+  .wa-btn{
+    display:inline-flex;align-items:center;gap:8px;margin-top:10px;background:#25D366;color:#fff;
+    font-weight:700;font-size:0.85rem;padding:10px 18px;border-radius:8px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--navy);color:#94a3b8;padding:56px 0 28px;}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;}
+  @media (max-width:760px){.footer-grid{grid-template-columns:1fr;gap:28px;}}
+  .footer-brand{color:#fff;font-weight:800;font-size:1.1rem;}
+  .footer-brand .sub{display:block;color:var(--amber);font-size:0.75rem;font-weight:600;margin-top:4px;letter-spacing:0.06em;text-transform:uppercase;}
+  footer p{color:#94a3b8;font-size:0.88rem;margin-top:14px;max-width:340px;}
+  footer h5{color:#fff;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;}
+  footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+  footer ul a{color:#94a3b8;font-size:0.9rem;transition:color .2s;}
+  footer ul a:hover{color:#fff;}
+  .footer-bottom{
+    margin-top:44px;padding-top:22px;border-top:1px solid rgba(255,255,255,0.08);
+    font-size:0.8rem;color:#64748b;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  }
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.show{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="brand">
+      <span class="brand-name">Vinayak Mishra</span>
+      <span class="brand-sub">IIT Madras BS · Data Science</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#method">Teaching Method</a></li>
+      <li><a href="#demo">Demo Video</a></li>
+      <li><a href="#curriculum">Curriculum</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Book Demo</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Book Free Demo</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="wrap hero-inner">
+    <div class="badges-row">
+      <span class="pill">🌍 Global Online Mentorship</span>
+      <span class="pill">📍 Offline Mentorship in Patna</span>
+    </div>
+    <h1>Math Isn't About Memorizing Formulas. It's About <em>Logic, STEM & Real-World Thinking.</em></h1>
+    <p class="sub">Personalized 1-on-1 academic mentorship by an <strong>IIT Madras Data Science</strong> scholar. Moving students from "Fear of Concepts" to "Core Mastery" — no ratta, only reasoning.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Book a Free Demo Class</a>
+      <a href="#method" class="btn-ghost">See the Teaching Method</a>
+    </div>
+
+    <div class="trust-row">
+      <div class="trust-card">
+        <div class="ico">🎓</div>
+        <h4>IIT Madras Scholar</h4>
+        <p>Applied Math, Data Logic & Problem Solving, brought directly into K–10 tutoring.</p>
+      </div>
+      <div class="trust-card">
+        <div class="ico">💡</div>
+        <h4>Zero Ratta-Mar</h4>
+        <p>Visual proofs and real-world applications replace rote memorization.</p>
+      </div>
+      <div class="trust-card">
+        <div class="ico">📈</div>
+        <h4>Grade Growth</h4>
+        <p>Proven track record of turning struggling students into top performers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CURRICULUM ============ -->
+<section id="curriculum">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What I Teach</span>
+      <h2>Two Tracks. One Logic-First Standard.</h2>
+      <p>Whether you need a deep STEM specialist or an all-rounder K-8 mentor, every session starts with "why," not "memorize this."</p>
+    </div>
+    <div class="dual-grid">
+      <div class="curric-card reveal">
+        <span class="curric-tag">Global Math & STEM</span>
+        <h3>Grades 1–10 · International Track</h3>
+        <div class="aud">For international & advanced Indian students</div>
+        <ul class="curric-list">
+          <li>Deep conceptual Math — Pre-Algebra, Algebra I & II, Geometry</li>
+          <li>Data intuition & early statistical thinking</li>
+          <li>Number-line proofs instead of memorized rules</li>
+          <li>Supports CBSE, ICSE, Cambridge IGCSE, US Common Core</li>
+        </ul>
+        <div class="curric-foot">Best for: US, UK, Gulf & globally-based families</div>
+      </div>
+      <div class="curric-card alt reveal">
+        <span class="curric-tag">All-Subject Foundation</span>
+        <h3>Classes 1–8 · India / Local Track</h3>
+        <div class="aud">For Indian parents seeking an all-rounder mentor</div>
+        <ul class="curric-list">
+          <li>Mathematics — logic-first, first-principles approach</li>
+          <li>Science (Physics/Chem/Bio) through real-world reasoning</li>
+          <li>Social Studies — storytelling & timeline-based learning</li>
+          <li>English Grammar — practical writing & sentence logic</li>
+        </ul>
+        <div class="curric-foot">Best for: Patna & Pan-India families</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ METHODOLOGY / CASE STUDY ============ -->
+<section class="method-section" id="method">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Methodology</span>
+      <h2>The "Why Behind The Math" Approach</h2>
+      <p>Every rule gets derived before it gets used. Here's a real example of how that plays out in a session.</p>
+    </div>
+    <div class="case-box reveal">
+      <div>
+        <div class="case-title">How I Cleared the (−) × (−) = (+) Confusion in 5 Minutes</div>
+        <p>Most students are told to just accept that two negatives make a positive. That rule, memorized without meaning, falls apart the moment a harder question changes the pattern.</p>
+        <p>Instead, we walk the number line together: facing forward is positive, turning around is negative. Multiplying by a negative means "turn around." So multiplying two negatives means turn around, then turn around again — you end up facing forward. The rule isn't memorized anymore. It's <em>seen</em>, and it never gets forgotten.</p>
+      </div>
+      <div class="number-line-wrap">
+        <svg viewBox="0 0 320 120" width="100%" xmlns="http://www.w3.org/2000/svg">
+          <line x1="20" y1="60" x2="300" y2="60" stroke="#334155" stroke-width="2"/>
+          <polygon points="300,60 290,55 290,65" fill="#334155"/>
+          <polygon points="20,60 30,55 30,65" fill="#334155"/>
+          <g font-family="Roboto Mono, monospace" font-size="11" fill="#94a3b8">
+            <text x="26" y="80" text-anchor="middle">-3</text>
+            <text x="83" y="80" text-anchor="middle">-2</text>
+            <text x="140" y="80" text-anchor="middle">-1</text>
+            <text x="160" y="80" text-anchor="middle">0</text>
+            <text x="200" y="80" text-anchor="middle">1</text>
+            <text x="257" y="80" text-anchor="middle">2</text>
+            <text x="300" y="80" text-anchor="middle">3</text>
+          </g>
+          <circle cx="160" cy="60" r="5" fill="#f59e0b"/>
+          <path d="M160,60 L143,44" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow)"/>
+          <defs>
+            <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#f59e0b"/>
+            </marker>
+          </defs>
+          <text x="150" y="34" font-family="Roboto Mono, monospace" font-size="10" fill="#f59e0b">turn, then turn</text>
+        </svg>
+        <div class="nl-steps">
+          <div class="nl-step"><span class="k">Step 1</span> Stand at 0, facing the positive direction.</div>
+          <div class="nl-step"><span class="k">Step 2</span> "×(−1)" means turn around 180°.</div>
+          <div class="nl-step"><span class="k">Step 3</span> Two negatives = two turns = facing forward again.</div>
+          <div class="nl-step"><span class="k">Result</span> (−) × (−) = (+), proven, not recited.</div>
+        </div>
+        <div class="nl-caption">Actual whiteboard technique used in live sessions</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT + DEMO VIDEO ============ -->
+<section id="demo">
+  <div class="wrap about-grid">
+    <div class="about-copy reveal">
+      <span class="eyebrow">About Your Mentor</span>
+      <h2>An IIT Madras Data Scientist, Teaching K–10 Like It's Data Science.</h2>
+      <p>Vinayak is currently pursuing the BS in Data Science at IIT Madras, and holds an AI certification from IIT Bombay. That same rigor — first-principles reasoning, pattern recognition, structured problem-solving — is what gets brought into every K-10 session.</p>
+      <p>The goal isn't to get a student through this week's homework. It's to build an independent, analytical mind that can reason through a problem it has never seen before — the same skill that data science and AI work demands every day.</p>
+      <ul class="about-credentials">
+        <li>IIT Madras BS in Data Science (in progress)</li>
+        <li>AI Certification, IIT Bombay</li>
+        <li>Commerce & Finance foundation — strong applied numeracy</li>
+        <li>Focus: independent analytical thinking, not rote recall</li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <div class="video-frame">
+        <!-- REPLACE YOUR_VIDEO_ID below with your actual YouTube video ID -->
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Demo teaching video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">
+        "Watch how I break down complex concepts into simple, visual steps. If your child struggles with interest or confidence in studies, 5 minutes of this teaching method will change their perspective forever."
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="reviews-section" id="reviews">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Social Proof</span>
+      <h2>What Parents & Students Say</h2>
+      <p>Real feedback from WhatsApp conversations.</p>
+    </div>
+
+    <div class="review-tabs reveal">
+      <button class="tab-btn active" data-tab="parents">Parent Reviews</button>
+      <button class="tab-btn" data-tab="students">Student Reviews</button>
+    </div>
+
+    <div class="review-panel active" id="panel-parents">
+      <div class="review-grid">
+        <!-- Replace src with your WhatsApp screenshot images, e.g. parent-review-1.jpg -->
+        <figure class="review-card"><img class="review-img-slot" src="parent-review-1.jpg" alt="Parent review 1" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'review-img-slot',textContent:'Replace with parent-review-1.jpg'}))"><figcaption>Parent, Grade 6</figcaption></figure>
+        <figure class="review-card"><img class="review-img-slot" src="parent-review-2.jpg" alt="Parent review 2" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'review-img-slot',textContent:'Replace with parent-review-2.jpg'}))"><figcaption>Parent, Grade 4</figcaption></figure>
+        <figure class="review-card"><img class="review-img-slot" src="parent-review-3.jpg" alt="Parent review 3" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'review-img-slot',textContent:'Replace with parent-review-3.jpg'}))"><figcaption>Parent, Grade 8</figcaption></figure>
+        <figure class="review-card"><img class="review-img-slot" src="parent-review-4.jpg" alt="Parent review 4" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'review-img-slot',textContent:'Replace with parent-review-4.jpg'}))"><figcaption>Parent, Grade 9 (IGCSE)</figcaption></figure>
+        <figure class="review-card"><img class="review-img-slot" src="parent-review-5.jpg" alt="Parent review 5" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'review-img-slot',textContent:'Replace with parent-review-5.jpg'}))"><figcaption>Parent, Grade 3</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="review-panel" id="panel-students">
+      <div class="review-grid">
+        <!-- Replace src with your WhatsApp screenshot images, e.g. student-review-1.jpg -->
+        <figure class="review-card"><img class="review-img-slot" src="student-review-1.jpg" alt="Student review 1" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'review-img-slot',textContent:'Replace with student-review-1.jpg'}))"><figcaption>Student, Grade 7</figcaption></figure>
+        <figure class="review-card"><img class="review-img-slot" src="student-review-2.jpg" alt="Student review 2" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'review-img-slot',textContent:'Replace with student-review-2.jpg'}))"><figcaption>Student, Grade 10</figcaption></figure>
+        <figure class="review-card"><img class="review-img-slot" src="student-review-3.jpg" alt="Student review 3" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'review-img-slot',textContent:'Replace with student-review-3.jpg'}))"><figcaption>Student, Grade 5</figcaption></figure>
+        <figure class="review-card"><img class="review-img-slot" src="student-review-4.jpg" alt="Student review 4" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'review-img-slot',textContent:'Replace with student-review-4.jpg'}))"><figcaption>Student, Grade 8</figcaption></figure>
+        <figure class="review-card"><img class="review-img-slot" src="student-review-5.jpg" alt="Student review 5" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'review-img-slot',textContent:'Replace with student-review-5.jpg'}))"><figcaption>Student, Grade 6</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOOK DEMO / CONTACT ============ -->
+<section class="contact-section" id="contact">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Get Started</span>
+      <h2>Book a Free Demo Class</h2>
+      <p>Three easy ways to reach out — pick whichever is fastest for you.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="form-box reveal">
+        <!-- Replace YOUR_GOOGLE_FORM_EMBED_LINK with your actual Google Form embed URL -->
+        <iframe src="YOUR_GOOGLE_FORM_EMBED_LINK" title="Book a demo form" loading="lazy">Loading form…</iframe>
+      </div>
+
+      <div class="contact-cards reveal">
+        <div class="contact-card">
+          <div class="ico">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <p>vinayakmishra923@gmail.com</p>
+            <a class="link-btn" href="mailto:vinayakmishra923@gmail.com">Send an Email →</a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="ico">💬</div>
+          <div>
+            <h4>Phone / WhatsApp</h4>
+            <p>+91 95083 55456</p>
+            <a class="wa-btn" href="https://wa.me/919508355456?text=Hi%20Vinayak,%20I%20want%20to%20book%20a%20demo%20class%20for%20my%20child." target="_blank" rel="noopener">Chat on WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="ico">📅</div>
+          <div>
+            <h4>Schedule via Calendly</h4>
+            <p>Pick an exact time slot in your own timezone.</p>
+            <!-- Replace YOUR_CALENDLY_LINK with your actual Calendly URL -->
+            <a class="link-btn" href="https://calendly.com/YOUR_CALENDLY_LINK" target="_blank" rel="noopener">Open Calendly →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Vinayak Mishra<span class="sub">IIT Madras BS · Data Science</span></div>
+        <p>Personalized, logic-first Math & STEM mentorship for grades 1–10 — online worldwide, and in person in Patna.</p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#method">Teaching Method</a></li>
+          <li><a href="#curriculum">Curriculum</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Book Demo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li>vinayakmishra923@gmail.com</li>
+          <li>+91 95083 55456</li>
+          <li>Patna, India · Online worldwide</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Vinayak Mishra. All rights reserved.</span>
+      <span>IIT Madras BS in Data Science</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Review tabs
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.review-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
